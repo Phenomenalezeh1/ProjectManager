@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Partner Matcher</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+    <h1 style="color: #FB00F1;">Find Your Team Partner</h1>
+    <form id="partnerForm" style="justify-content: center;">
+        <label for="name">Enter your name:  </label><br> <br>
+        <input type="text" id="name" name="name" required ><br>  <br>
+        <button type="submit" class="btn">Find Partner</button>
+    </form>
+        <div id="result"></div>
+        <p style="font-size: 7px;justify-content: center;">Designed by phenomezeh</p>
+    </div>
+    <script>
+        document.getElementById('partnerForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const response = await fetch('/enter', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ name })
+            });
+            const data = await response.json();
+            document.getElementById('result').innerText = `Your partner is: ${data.partner}`;
+        });
+    </script>
+</body>
+</html>
