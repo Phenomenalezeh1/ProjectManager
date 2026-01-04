@@ -3,11 +3,7 @@ const { Pool } = require('pg');
 const path = require('path');
 
 const pool = new Pool({
-  user: 'postgres',     
-  host: 'localhost',
-  database: 'team_matcher',
-  password: 'Daredevil3',  
-  port: 5432,
+  connectionString: process.env.DATABASE_URL || 'postgresql://postgres:Daredevil3@localhost:5432/team_matcher',
 });
 
 const app = express();
@@ -15,7 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Initialize database
 async function initDB() {
