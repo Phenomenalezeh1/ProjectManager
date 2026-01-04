@@ -32,6 +32,22 @@ A Node.js web application that randomly assigns team partners from a PostgreSQL 
 
 5. Open http://localhost:3000 in your browser.
 
+## Deployment
+
+This app can be deployed to Railway for free.
+
+1. Go to [Railway.app](https://railway.app) and sign up/login.
+
+2. Create a new project and connect your GitHub repository: https://github.com/Phenomenalezeh1/ProjectManager
+
+3. Add a PostgreSQL database to your project.
+
+4. In your Railway project settings, set the environment variable `DATABASE_URL` to the database connection string provided by Railway.
+
+5. Deploy the app. Railway will automatically build and deploy from your GitHub repo.
+
+6. Once deployed, Railway will provide a public URL for your app.
+
 ## How it works
 
 - Users enter their name.
